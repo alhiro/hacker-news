@@ -1,0 +1,28 @@
+.content-wrapper {
+  ion-searchbar {
+    padding-left: var(--ion-padding, 0);
+    padding-right: var(--ion-padding, 0);
+  }
+}
+
+.content-list {
+  ion-avatar {
+    height: 75px;
+    width: 65px;
+  }
+
+  ion-item {
+    padding-top: var(--ion-padding, 10px);
+    padding-top: var(--ion-padding, 10px);
+  }
+
+  .ion-no-border-radius {
+    border-radius: 0;
+  }
+}
+
+.title {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dddddd;
+}

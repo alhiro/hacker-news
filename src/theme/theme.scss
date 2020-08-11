@@ -1,0 +1,32 @@
+/*
+ * Global application theme.
+ * Framework overrides and customization goes here.
+ */
+
+:focus {
+  outline: none;
+}
+
+.logo {
+  width: 150px;
+  margin: 0 auto;
+}
+
+q {
+  font-style: italic;
+  quotes: "« " " »";
+}
+
+[ion-fixed] {
+  width: 100%;
+  height: 100%;
+}
+
+ion-card {
+  &.no-style {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+}

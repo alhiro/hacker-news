@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/ome"></ion-back-button>
+    </ion-buttons>
+    <ion-title><span translate>Detail</span></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card class="ion-left-center no-style">
+    <ion-card-content>
+      <div class="content-list">
+        
+        <app-loader [isLoading]="isLoading"></app-loader>
+        
+        <div class="item" *ngIf=items>          
+          <div class="title">
+            <h2><b>{{items?.title}}</b></h2>
+            <small>
+              {{items?.score}} points by {{items?.by}} {{date}} hours ago | hide | past | favorite | {{comments}} comments
+            </small>
+          </div>
+          <div class="desc">
+            {{items?.text}}
+          </div>
+          <hr>
+          <div class="comments">
+            {{listComments}}
+          </div>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
