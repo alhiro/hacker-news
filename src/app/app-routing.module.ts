@@ -7,7 +7,7 @@ const routes: Routes = [
     { path: 'about', loadChildren: () => import('./pages/about/about.module').then((m) => m.AboutModule) },
   ]),
 
-  { path: 'detail/:itemID', loadChildren: () => import('./pages/lists/lists.module').then((m) => m.ListsModule) },
+  { path: 'item/:itemID', loadChildren: () => import('./pages/lists/lists.module').then((m) => m.ListsModule) },
 
   // Fallback when no prior route is matched
   { path: '**', redirectTo: 'tabs/home', pathMatch: 'full' },

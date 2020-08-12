@@ -21,6 +21,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { fancyAnimation } from './animation';
 
+import { HNService } from './pages/home/news.service';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -41,7 +43,7 @@ import { fancyAnimation } from './animation';
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
-  providers: [Keyboard, StatusBar, SplashScreen],
+  providers: [Keyboard, StatusBar, SplashScreen, HNService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

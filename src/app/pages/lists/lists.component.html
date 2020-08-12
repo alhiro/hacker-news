@@ -11,22 +11,27 @@
   <ion-card class="ion-left-center no-style">
     <ion-card-content>
       <div class="content-list">
-        
-        <app-loader [isLoading]="isLoading"></app-loader>
-        
-        <div class="item" *ngIf=items>          
+        <p>Story #{{ itemID }}</p>
+        <p>
+          <app-loader [isLoading]="isLoading"></app-loader>
+        </p>
+
+        <div class="item" *ngIf="item">
           <div class="title">
-            <h2><b>{{items?.title}}</b></h2>
+            <h2>
+              <b>{{ item?.title }}</b>
+            </h2>
             <small>
-              {{items?.score}} points by {{items?.by}} {{date}} hours ago | hide | past | favorite | {{comments}} comments
+              {{ item?.score }} points by {{ item?.by }} {{ date }} hours ago | hide | past | favorite |
+              {{ comments }} comments
             </small>
           </div>
           <div class="desc">
-            {{items?.text}}
+            {{ item?.text }}
           </div>
-          <hr>
+          <hr />
           <div class="comments">
-            {{listComments}}
+            {{ listComments }}
           </div>
         </div>
       </div>

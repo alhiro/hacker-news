@@ -7,13 +7,10 @@ import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { HNService } from './news.service';
 
 @NgModule({
   imports: [CommonModule, TranslateModule, CoreModule, SharedModule, IonicModule, HomeRoutingModule],
   declarations: [HomeComponent],
-  schemas: [
-    NO_ERRORS_SCHEMA
-  ]
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class HomeModule {}

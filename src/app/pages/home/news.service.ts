@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 const routes = {
-  news: (c: News) => `/askstories.json`,
+  news: `/askstories.json`,
   item: (c: Item) => `/item/${c.id}.json`,
 };
 
@@ -24,8 +24,8 @@ export interface Item {
 export class HNService {
   constructor(private http: HttpClient) {}
 
-  getNews(context: News): Observable<any> {
-    return this.http.get(routes.news(context));
+  getNews(): Observable<any> {
+    return this.http.get(routes.news);
   }
 
   getItem(context: Item): Observable<any> {
