@@ -1,0 +1,13 @@
+.comment {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+
+  span {
+    &.text {
+      padding-left: 20px;
+      margin: 15px 0;
+      display: block;
+    }
+  }
+}

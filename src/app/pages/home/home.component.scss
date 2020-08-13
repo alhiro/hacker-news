@@ -55,3 +55,11 @@
     padding-top: var(--ion-padding, 5px);
   }
 }
+
+.content-list {
+  ol {
+    li {
+      font-size: 16px;
+    }
+  }
+}

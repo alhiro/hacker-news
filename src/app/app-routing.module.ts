@@ -6,8 +6,7 @@ const routes: Routes = [
   Shell.childRoutes([
     { path: 'about', loadChildren: () => import('./pages/about/about.module').then((m) => m.AboutModule) },
   ]),
-
-  { path: 'item/:itemID', loadChildren: () => import('./pages/lists/lists.module').then((m) => m.ListsModule) },
+  { path: 'detail/:id', loadChildren: () => import('./pages/detail/detail.module').then((m) => m.DetailModule) },
 
   // Fallback when no prior route is matched
   { path: '**', redirectTo: 'tabs/home', pathMatch: 'full' },

@@ -13,7 +13,7 @@ import { DatePipe } from '@angular/common';
 export class ListsComponent implements OnInit {
   isLoading = false;
 
-  @Input() itemID: any;
+  @Input() itemID: number;
 
   item: any;
   comments: any;
@@ -22,7 +22,7 @@ export class ListsComponent implements OnInit {
   pipe = new DatePipe('en-US');
   date: any;
 
-  constructor(private newsService: HNService, private route: ActivatedRoute) {}
+  constructor(private newsService: HNService) {}
 
   ngOnInit(): void {
     this.getItem();
@@ -30,9 +30,8 @@ export class ListsComponent implements OnInit {
 
   getItem() {
     this.isLoading = true;
-    const detailID = this.route.snapshot.paramMap.get('itemID');
     this.newsService
-      .getItem({ id: detailID })
+      .getItem({ id: this.itemID })
       .pipe(
         finalize(() => {
           this.isLoading = false;
@@ -41,18 +40,22 @@ export class ListsComponent implements OnInit {
       .subscribe(
         (data) => {
           // get response data
-          this.item = data;
+          if (data) {
+            this.item = data;
 
-          // count length comment
-          this.comments = data.kids.length;
+            // get comment
+            this.listComments = data.kids;
 
-          // get comment
-          this.listComments = data.kids;
+            // count length comment
+            this.comments = data.kids.length;
 
-          // format date to hour
-          const now = data.time;
-          const time = this.pipe.transform(now, 'h');
-          this.date = time;
+            // format date to hour
+            const now = data.time;
+            const time = this.pipe.transform(now, 'h');
+            this.date = time;
+          } else {
+            this.item = [];
+          }
 
           console.log('stories item ' + JSON.stringify(data));
         },

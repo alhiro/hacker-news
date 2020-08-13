@@ -9,6 +9,7 @@ import { ListsComponent } from './lists.component';
 
 @NgModule({
   declarations: [ListsComponent],
+  exports: [ListsComponent],
   imports: [CommonModule, TranslateModule, SharedModule, IonicModule, ListsRoutingModule],
 })
 export class ListsModule {}

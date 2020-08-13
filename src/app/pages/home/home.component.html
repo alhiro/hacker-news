@@ -15,20 +15,13 @@
       <div class="content-wrapper">
         <ion-card-title class="ion-text-center">
           <span class="title" translate>Best Stories</span>
-          <!-- <ol>
-            <li *ngFor="let item of items | slice:0:20; let i = index" class="post">
-              {{ item }}
-            </li>
-          </ol> -->
         </ion-card-title>
       </div>
       <div class="content-list">
         <app-loader [isLoading]="isLoading"></app-loader>
         <ol>
-          <li *ngFor="let item of items; let i = index">
-            <ion-label routerLink="/detail/{{ item }}">
-              <item class="item-block" [itemID]="item"></item>
-            </ion-label>
+          <li *ngFor="let item of items | slice: 0:20; let i = index">
+            <app-lists class="item-block" [itemID]="item"></app-lists>
           </li>
         </ol>
       </div>

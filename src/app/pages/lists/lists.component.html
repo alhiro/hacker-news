@@ -1,40 +1,12 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="tabs/ome"></ion-back-button>
-    </ion-buttons>
-    <ion-title><span translate>Detail</span></ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content fullscreen>
-  <ion-card class="ion-left-center no-style">
-    <ion-card-content>
-      <div class="content-list">
-        <p>Story #{{ itemID }}</p>
-        <p>
-          <app-loader [isLoading]="isLoading"></app-loader>
-        </p>
-
-        <div class="item" *ngIf="item">
-          <div class="title">
-            <h2>
-              <b>{{ item?.title }}</b>
-            </h2>
-            <small>
-              {{ item?.score }} points by {{ item?.by }} {{ date }} hours ago | hide | past | favorite |
-              {{ comments }} comments
-            </small>
-          </div>
-          <div class="desc">
-            {{ item?.text }}
-          </div>
-          <hr />
-          <div class="comments">
-            {{ listComments }}
-          </div>
-        </div>
-      </div>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+<div class="item" *ngIf="item">
+  <div class="title">
+    <h2>
+      <b
+        ><a routerLink="/detail/{{ item.id }}">{{ item.title }}</a></b
+      >
+    </h2>
+    <small>
+      {{ item.score }} points by {{ item.by }} {{ date }} hours ago | hide | past | favorite | {{ comments }} comments
+    </small>
+  </div>
+</div>

@@ -11,13 +11,12 @@ import { HNService } from './news.service';
 export class HomeComponent implements OnInit {
   isLoading = false;
 
-  @Input() itemID: any;
+  @Input() itemID: number;
   items: any;
-  data: any;
-  newsID: any;
 
   constructor(private newsService: HNService) {
-    //this.items = Array(30);
+    // this.items = Array(20);
+    // I think this is not good API from Hacker News with method by id for repeat the detail. Making slow app
   }
 
   ngOnInit(): void {
@@ -39,40 +38,12 @@ export class HomeComponent implements OnInit {
 
         //   ArrayID.forEach((id: any) => {
         //     console.log("id " + JSON.stringify(id));
-        //     // ...
         //   })
 
         //   return ArrayID;
         // }),
         // toArray()
       )
-      .subscribe((item) => {
-        console.log(item);
-
-        let ArrayID: any = this.newsService.getItem({ id: item });
-
-        ArrayID.forEach((id: any) => {
-          console.log('idxxxx ' + JSON.stringify(id));
-          // ...
-        });
-      });
-  }
-
-  getItem() {
-    this.isLoading = true;
-    this.newsService
-      .getItem({ id: this.newsID })
-      .pipe(
-        finalize(() => {
-          this.isLoading = false;
-        })
-      )
-      .subscribe(
-        (data) => {
-          this.data = data;
-          console.log('itemm ' + JSON.stringify(this.data));
-        },
-        (error) => console.log('Error fetching stories ' + error)
-      );
+      .subscribe((item) => (this.items = item));
   }
 }
